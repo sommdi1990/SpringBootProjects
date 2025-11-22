@@ -1,0 +1,15 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: spring-batch
+  datasource:
+    url: jdbc:h2:tcp://h2-database:9092/~/batchdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  batch:
+    jdbc:
+      initialize-schema: always
+
