@@ -1,32 +1,13 @@
-# Spring Boot Projects
+# Spring Boot examples by integration
 
-مجموعه کامل پروژه‌های Spring Boot با Java و Maven
+A Maven collection separates Spring integrations into small applications. The JPA example contains an HTTP controller, user entity and repository. The Kafka example has separate HTTP and consumer classes.
 
-## 📋 فهرست محتوا
+Start with the JPA user controller and repository to follow a request into persistence. Then open the Kafka controller and consumer to compare that path with asynchronous messaging. Other modules vary in depth and several contain only an application entry point and configuration.
 
-- [نصب و راه‌اندازی](#نصب-و-راه‌اندازی)
-- [ساختار پروژه](#ساختار-پروژه)
-- [اجرای پروژه](#اجرای-پروژه)
-- [مستندات](#مستندات)
-
-## 🚀 نصب و راه‌اندازی
-
-### پیش‌نیازها
-
-- Java 17 یا بالاتر
-- Maven 3.6+
-- Docker و Docker Compose
-
-### نصب
-
-```bash
-# کلون کردن پروژه
-git clone <repository-url>
-cd SpringBootProjects
-
-# ساخت پروژه
-mvn clean install
-```
+- [UserController.java](spring-data-jpa/src/main/java/com/springboot/jpa/controller/UserController.java)
+- [UserRepository.java](spring-data-jpa/src/main/java/com/springboot/jpa/repository/UserRepository.java)
+- [KafkaController.java](spring-kafka/src/main/java/com/springboot/kafka/controller/KafkaController.java)
+- [KafkaConsumer.java](spring-kafka/src/main/java/com/springboot/kafka/consumer/KafkaConsumer.java)
 
 ## 📁 ساختار پروژه
 
@@ -53,47 +34,6 @@ SpringBootProjects/
 └── spring-rest-docs/          # Spring REST Docs
 ```
 
-## 🐳 اجرای پروژه
-
-### اجرای سرویس‌های Docker
-
-```bash
-# اجرای تمام سرویس‌ها
-docker-compose up -d
-
-# اجرای سرویس خاص
-docker-compose up -d h2-database
-docker-compose up -d redis
-docker-compose up -d mongodb
-docker-compose up -d rabbitmq
-docker-compose up -d kafka
-```
-
-### اجرای ماژول‌ها
-
-```bash
-# اجرای ماژول خاص
-cd spring-boot-core
-mvn spring-boot:run
-
-# یا با Docker
-mvn clean package
-docker build -t spring-boot-core .
-docker run -p 8080:8080 spring-boot-core
-```
-
-## 📚 مستندات
-
-مستندات کامل فارسی در پوشه `SpringBootProjects.wiki/` قرار دارد:
-
-- [صفحه اصلی Wiki](./SpringBootProjects.wiki/Home.md)
-- [Spring Boot Core](./SpringBootProjects.wiki/Spring-Boot-Core.md)
-- [Spring Data JPA](./SpringBootProjects.wiki/Spring-Data-JPA.md)
-- [Spring Security](./SpringBootProjects.wiki/Spring-Security.md)
-- [Spring Kafka](./SpringBootProjects.wiki/Spring-Kafka.md)
-- [Spring Batch](./SpringBootProjects.wiki/Spring-Batch.md)
-- و سایر ماژول‌ها...
-
 ## 🔧 پورت‌های سرویس‌ها
 
 | سرویس            | پورت        |
@@ -113,4 +53,3 @@ docker run -p 8080:8080 spring-boot-core
 ## 📝 مجوز
 
 این پروژه تحت مجوز MIT منتشر شده است.
-
